@@ -101,9 +101,12 @@
     
 12.Function retrieve_max:
     Desctiption - 
+        Function that retrieves the most probable translation of a dutch word.
     Variables - 
+        num_dict_dutch :  Variable which contains the Inverted index of all dutch words
+        num_dict_eng : Variable which stores variable stores line number of english words.
     Returns -
-    
+        Retrieves translation from english to dutch and dutch to english. 
     
 13.Function pearson_coefficient:
     Desctiption - 
