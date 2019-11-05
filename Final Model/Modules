@@ -7,8 +7,8 @@
         Dutch_File : File containing Dutch lines.
         no_of_sentences : Total number of sentences in each files.
     Returns - 
-        eng : Variable containing all english sentences.
-        dutch : Variable containing all english sentences.
+        eng variable containing all english sentences and dutch variable containing all english sentences.
+
 
 2. Function remove_punc : 
     Description -
@@ -16,8 +16,9 @@
     Variables - 
         lang : Variable containing english or dutch sentences
     Returns -
-        l : Variable containing all the sentences without the stopwords and punctuation.
-        
+        Variable containing all the sentences without the stopwords and punctuation.
+
+
 3. Function remove_stopwords:
     Description - 
         Function removes all the stopwords sentence by sentence.
@@ -25,17 +26,21 @@
         eng_sw : Variable containing english stopwords.
         dut_sw : Variable containing dutch stopwords.
         lang : Variable containing english or dutch sentences.
-        l : Variable containing a single english or dutch sentence.
+        l Variable containing a single english or dutch sentence.
     Returns -
-        s : Variable returns sentence without stopwords.
+        Variable returns sentence without stopwords.
+
+
 4. Function remove_stuff:
     Desctiption - 
         Function removes all punctuation sentence by sentence.
     Variables - 
         l : Variable containing a single english or dutch sentence.
     Returns -
-        l : All puntuations are removed from l.
+        l variable with all puntuations removed l.
     
+
+
 5. Function assign_line_no:
     Desctiption -
         Function makes an inverted index where each word is matched to all the lines it is present in.
@@ -43,14 +48,16 @@
         doc : Variable contains either one of "dutch2" or "eng2" which contain the documents "dutch" and "eng" without 
         the punctuations or stop-words.
     Returns -
-        dict_lo : Variable contains the inverted index of all the words in the document.
+        dict_lo Variable which contains the inverted index of all the words in the document.
     
+
 6. Function make_dict_dutch:
     Desctiption - 
         Function makes indexed Dictionary of Dutch words 
     Variables - 
     Returns -
     
+
 7. Function initialize:
     Desctiption - 
         Creates Dutch-English word pairs then initializes their probabilities. It calls write_to_file 
@@ -59,9 +66,10 @@
         foreign_l : All Dutch words.
         english_l : All English words.
     Returns -
-        Returns num_dict_dutch which contains the Inverted index of all dutch words and num_dict_eng which stores variable 
+        num_dict_dutch which contains the Inverted index of all dutch words and num_dict_eng which stores variable 
         stores line number of english words.
     
+
 8. Function write_to_file:
     Desctiption - 
         Function writes  the probabilities of English-Dutch word pairs into a file because of RAM limitations.
@@ -78,35 +86,58 @@
     Variables - 
     Returns -
     
+    
 10.Function running_function:
     Desctiption - 
     Variables - 
     Returns -
+    
     
 11.Function write_to_file2:
     Desctiption - 
     Variables - 
     Returns -
     
+    
 12.Function retrieve_max:
     Desctiption - 
     Variables - 
     Returns -
     
+    
 13.Function pearson_coefficient:
     Desctiption - 
+        Function calculates pearson coefficient. It calculates normalized weight of individual sentences by calling 
+        maintain_count().
     Variables - 
+        dutchWord_line_no : Variable is a dictionary of dutch words mapping to individual line numbers.
+        dut_cleaned : Variable contains cleaned Dutch lines.
+        result_dut : Variable is list of lines produced by our model.
     Returns -
+        Returns Pearson Coefficient between two dutch lines.
+    
     
 14.Function cosine_similarity:
     Desctiption - 
+        Function calculates Cosine similarity. It calculates normalized weight of individual sentences by calling 
+        maintain_count().
     Variables - 
+        dutchWord_line_no : Variable is a dictionary of dutch words mapping to individual line numbers.
+        dut_cleaned : Variable contains cleaned Dutch lines.
+        result_dut : Variable is list of lines produced by our model.
     Returns -
+        Returns Cosine similarity between two dutch lines.
+    
     
 15.Function maintain_normalized_tf:
     Desctiption - 
+        Function to find normalized Tf weights of a dutch sentence with a sentence produced by our model. 
     Variables - 
+        doc_dict_line_no : single dutch sentence. 
+        data_clean : Variable is a list that contains dutch sentences produces by the IBM model.
     Returns -
+        Normalized tf weights 2 sentences at a time.
+        
     
 16.Function produce_sentence:
     Desctiption - 
@@ -116,10 +147,12 @@
         doc_lang : 
     Returns -
     
+    
 17.Function translate_doc:
     Desctiption - 
     Variables - 
     Returns -
+    
     
 18.Function  delete_files:
     Desctiption - 
