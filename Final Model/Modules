@@ -51,55 +51,60 @@
         dict_lo Variable which contains the inverted index of all the words in the document.
     
 
-6. Function make_dict_dutch:
+6. Function initialize:
     Desctiption - 
-        Function makes indexed Dictionary of Dutch words 
-    Variables - 
-    Returns -
-    
-
-7. Function initialize:
-    Desctiption - 
-        Creates Dutch-English word pairs then initializes their probabilities. It calls write_to_file 
+        Creates Dutch-English word pairs then initializes their probabilities. It calls write_to_file and make_dict_dutch.
     Variables - 
         foreign_no_of_words : Total number of dutch words.
         foreign_l : All Dutch words.
         english_l : All English words.
     Returns -
-        num_dict_dutch which contains the Inverted index of all dutch words and num_dict_eng which stores variable 
-        stores line number of english words.
+        num_dict_dutch which contains the index of all dutch words with the english words and num_dict_eng which stores 
+        variable stores line number of english words.
     
 
-8. Function write_to_file:
+7. Function make_dict_dutch:
     Desctiption - 
-        Function writes  the probabilities of English-Dutch word pairs into a file because of RAM limitations.
+        Function makes indexed Dictionary of Dutch words. 
     Variables - 
-        english_word : Variable A single English word.
-        counter : 
-        file_name : 
-        index : 
+        num_dict_dutch :
     Returns -
+    
+    
+8. Function finding_probabilities:
+    Desctiption - 
+        Function updates count variable for each dutch-english word pair.
+    Variables - 
+        dutch_sentences : all the clean dutch sentences retrieved
+        eng_sentences : all the clean english sentences retrieved
+        no_of_sentences : Total number of either dutch or english sentences
+        total : Normalized fractional counts
+    Returns -
+        Normalized fractional counts of every dutch-english word pair.
+    
+    
+9.Function running_function:
+    Desctiption - 
+        Function repeatedly calls finding_probabilities to update count for every dutch-english word pair.   
+    Variables - 
+        foreign_l : Variable contains list of all dutch words.
+        english_l : Variable contains list of all english words.
+        dutch_sentences : all the clean dutch sentences retrieved
+        eng_sentences : all the clean english sentences retrieved
+        no_of_iterations : number of times the count is to be updated.
+    Returns -
+        Updates count in database num_iteration number of times.
         
     
-9. Function finding_probabilities:
+10.Function write_to_file2:
     Desctiption - 
+        Writes Count of every dutch-english word pair in a file.
     Variables - 
+        
     Returns -
     
     
-10.Function running_function:
-    Desctiption - 
-    Variables - 
-    Returns -
-    
-    
-11.Function write_to_file2:
-    Desctiption - 
-    Variables - 
-    Returns -
-    
-    
-12.Function retrieve_max:
+11.Function retrieve_max:
     Desctiption - 
         Function that retrieves the most probable translation of a dutch word.
     Variables - 
@@ -108,7 +113,7 @@
     Returns -
         Retrieves translation from english to dutch and dutch to english. 
     
-13.Function pearson_coefficient:
+12.Function pearson_coefficient:
     Desctiption - 
         Function calculates pearson coefficient. It calculates normalized weight of individual sentences by calling 
         maintain_count().
@@ -120,7 +125,7 @@
         Returns Pearson Coefficient between two dutch lines.
     
     
-14.Function cosine_similarity:
+13.Function cosine_similarity:
     Desctiption - 
         Function calculates Cosine similarity. It calculates normalized weight of individual sentences by calling 
         maintain_count().
@@ -132,7 +137,7 @@
         Returns Cosine similarity between two dutch lines.
     
     
-15.Function maintain_normalized_tf:
+14.Function maintain_normalized_tf:
     Desctiption - 
         Function to find normalized Tf weights of a dutch sentence with a sentence produced by our model. 
     Variables - 
@@ -142,22 +147,32 @@
         Normalized tf weights 2 sentences at a time.
         
     
-16.Function produce_sentence:
+15.Function produce_sentence:
     Desctiption - 
+        Function translates an english sentence to dutch and adds the punctuation to form a complete sentence.
     Variables - 
-        eng_sentence : 
-        translated_dict : 
-        doc_lang : 
+        eng_sentence : A single english sentence.
+        translated_dict : Variable contains dutch translation of all english words.
+        doc_lang : Variable gives user option to either translate english to dutch or vice-versa. Default is 
+        english to dutch.
     Returns -
+        Dutch translation of an english sentence.
     
-    
-17.Function translate_doc:
+16.Function translate_doc:
     Desctiption - 
+        Function calls produce_sentence repeatedly to translate the entire english document to dutch.
     Variables - 
+        eng_doc : Variable contains either dutch or english list of sentences.
+        translated_dict : Variable contains dutch translation of all english words.
+        rewrite_file : The file in which all the translated words are stored.
+        doc_lang : Variable gives user option to either translate english to dutch or vice-versa. Default is 
+        english to dutch.
     Returns -
+        List of all translated sentences.
+        
     
-    
-18.Function  delete_files:
+17.Function  delete_files:
     Desctiption - 
+        Function deletes useless files containing probabilities and count. 
     Variables - 
     Returns -
